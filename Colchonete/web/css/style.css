@@ -37,6 +37,25 @@ and open the template in the editor.
     margin: 30px 15px 15px 15px;
 }
 
+.cadastro{
+    width: 50%;
+    margin: 15px 15px 15px 15px;
+}
+
+.dados_pessoais{
+    display: block;
+    text-align: left;
+}
+
+.dados_endereco{
+    display: block;
+    text-align: left;
+}
+
+.dados_usuario{
+    display: block;
+    text-align: left;
+}
 .input_text{
     padding: 5px;
     display: block;

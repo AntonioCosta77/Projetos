@@ -18,17 +18,11 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" resizable="true" closable="true" collapsible="true">
-                    <h1>Bem-Vindo ao Colchonete</h1>
-                    <div class="item_menu">
-                        <a href="/Colchonete/faces/index.xhtml" class="item_menu_topo">Inicio</a>
-                        <a href="/Colchonete/faces/login.xhtml" class="item_menu_topo">Minha Conta</a>
-                    </div>
+                    <ui:include src="includes/topo.xhtml"/>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" closable="true" collapsible="true">
-                    <center>  
-                        Copyright &copy; 2015 - SolSoftware - Todos os Direitos Reservados
-                    </center>
+                    <ui:include src="includes/roda_pe.xhtml"/>
                 </p:layoutUnit>
                 
                 <p:layoutUnit position="west" size="250">

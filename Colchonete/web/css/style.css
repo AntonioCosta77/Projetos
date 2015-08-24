@@ -23,4 +23,5 @@ and open the template in the editor.
     background-color: #EEEEEE;
     padding: 10px 10px 10px 10px;
     cursor: pointer;
+    border-radius: 0.5em;
 }

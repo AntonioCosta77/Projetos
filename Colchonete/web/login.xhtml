@@ -17,9 +17,7 @@
                 <p:layoutUnit position="north" resizable="true" closable="true" collapsible="true">
                     <h1>Bem-Vindo ao Colchonete</h1>
                     <div class="item_menu">
-                        <p:link outcome="view_usuario/pagina_principal" value="Minha Conta" styleClass="item_menu_topo">
-                            <f:param name="dt_access" value="now"/>
-                        </p:link>
+                        <a href="/Colchonete/faces/index.xhtml" class="item_menu_topo">Inicio</a>
                     </div>
                 </p:layoutUnit>
 
@@ -31,7 +29,22 @@
                 
                 <p:layoutUnit position="center">
                     <center>
-                        <h3>Logar</h3>
+                        <p:panel class="login">
+                            <h:form>
+                            <h2>Login</h2>
+                            <p class="input_text">
+                            <p:outputLabel value="Login: "/>
+                            <p:inputText type="text" required="true" requiredMessage="Informe seu login"/>
+                            </p>
+                            
+                            <p class="input_text">
+                            <p:outputLabel value="Senha: "/>
+                            <p:inputText type="password" required="true" requiredMessage="Informe seu login"/>
+                            </p>
+                            
+                            <p:commandButton value="Acessar" styleClass="btn"/>
+                            </h:form>
+                        </p:panel>
                     </center>
                 </p:layoutUnit>
 

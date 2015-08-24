@@ -31,3 +31,15 @@ and open the template in the editor.
     font-style: oblique;
     font-weight: bold;
 }
+
+.login{
+    width: 30%;
+    margin: 30px 15px 15px 15px;
+}
+
+.input_text{
+    padding: 5px;
+    display: block;
+}
+
+.btn{}

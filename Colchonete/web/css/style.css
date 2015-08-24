@@ -15,8 +15,9 @@ and open the template in the editor.
 }
 
 .item_menu_topo{
-    color: navy;
     padding: 0px 5px 5px 5px;
+    text-decoration: none;
+    color: darkblue;
 }
 
 .item_menu_topo:hover{
@@ -24,4 +25,9 @@ and open the template in the editor.
     padding: 10px 10px 10px 10px;
     cursor: pointer;
     border-radius: 0.5em;
+}
+
+.descricao{
+    font-style: oblique;
+    font-weight: bold;
 }

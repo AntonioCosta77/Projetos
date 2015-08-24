@@ -20,8 +20,9 @@
                 <p:layoutUnit position="north" resizable="true" closable="true" collapsible="true">
                     <h1>Bem-Vindo ao Colchonete</h1>
                     <div class="item_menu">
-                        <p:outputLabel styleClass="item_menu_topo" value="Pesquisa Detalhada"/>
-                        <p:outputLabel styleClass="item_menu_topo" value="Minha Conta" />
+                        <p:link outcome="pagina_principal" value="Minha Conta" styleClass="item_menu_topo">
+                            <f:param name="dt_access" value="now"/>
+                        </p:link>
                     </div>
                 </p:layoutUnit>
 
@@ -30,8 +31,27 @@
                         Copyright &copy; 2015 - SolSoftware - Todos os Direitos Reservados
                     </center>
                 </p:layoutUnit>
-
-                <p:layoutUnit position="center" size="90">
+                
+                <p:layoutUnit position="west" size="250">
+                    <h:form>
+                        <p class="descricao">
+                        <p:outputLabel value="Buscar Ofertas"/>
+                        </p>
+                        
+                        <p>
+                        <p:inputText placeholder="Cidade"/>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="Estado" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Amazonas" itemValue="Amazonas" />
+                            <f:selectItem itemLabel="Para" itemValue="Pará" />
+                            <f:selectItem itemLabel="Maranhao" itemValue="Maranhão" />
+                            <f:selectItem itemLabel="Ceara" itemValue="Ceára" />
+                        </p:selectOneMenu>
+                        </p>
+                    </h:form>
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="center">
                     Welcome to PrimeFaces
                 </p:layoutUnit>
 

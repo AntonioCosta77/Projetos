@@ -42,9 +42,7 @@
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Data de Nacimento: " styleClass="input_text"/>
-                                <h:inputText id="dt_nascimento" value="#{pessoaController.pessoaB.dt_nascimento}">  
-                                    <f:convertDateTime type="date" pattern="dd/mm/yyyy" />  
-                                </h:inputText> 
+                                <p:inputMask mask="99/99/9999" id="dt_nascimento" value="#{pessoaController.pessoaB.dt_nascimento}"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="RG: " styleClass="input_text"/>

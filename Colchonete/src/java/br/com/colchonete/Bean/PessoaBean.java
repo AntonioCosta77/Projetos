@@ -10,7 +10,7 @@ public class PessoaBean {
     private int id_pessoa;
     private String nome;
     private String nick_name;
-    private Date dt_nascimento;
+    private String dt_nascimento;
     private int rg;
     private int cpf;
     private String telefone;
@@ -19,7 +19,7 @@ public class PessoaBean {
     public PessoaBean() {
     }
 
-    public PessoaBean(int id_pessoa, String nome, String nick_name, Date dt_nascimento, int rg, int cpf, String telefone, String email) {
+    public PessoaBean(int id_pessoa, String nome, String nick_name, String dt_nascimento, int rg, int cpf, String telefone, String email) {
         this.id_pessoa = id_pessoa;
         this.nome = nome;
         this.nick_name = nick_name;
@@ -54,11 +54,11 @@ public class PessoaBean {
         this.nick_name = nick_name;
     }
 
-    public Date getDt_nascimento() {
+    public String getDt_nascimento() {
         return dt_nascimento;
     }
 
-    public void setDt_nascimento(Date dt_nascimento) {
+    public void setDt_nascimento(String dt_nascimento) {
         this.dt_nascimento = dt_nascimento;
     }
 

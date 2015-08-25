@@ -23,9 +23,10 @@
             </p:layoutUnit>
         
             <p:layoutUnit position="center">
-                <h:form>
-                    <center>
-                        <p:panel class="cadastro">
+                <center>
+                    <p:panel class="cadastro">    
+                        <h:form id="frmCadastro">
+                            <p:growl id="grow"/>
                             <div>
                             <h3>Realizaçao de Cadastro</h3>
                             </div>
@@ -33,18 +34,34 @@
                             <div class="dados_pessoais">
                                 <h4>Dados Pessoais</h4>
                                 <p:outputLabel value="Nome Completo: " styleClass="input_text"/>
+                                <p:inputText id="nome" value="#{pessoaController.pessoaB.nome}" required="true" requiredMessage="Informe o seu nome!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Como deseja ser chamado: " styleClass="input_text"/>
+                                <p:inputText id="nick_name" value="#{pessoaController.pessoaB.nick_name}"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Data de Nacimento: " styleClass="input_text"/>
+                                <h:inputText id="dt_nascimento" value="#{pessoaController.pessoaB.dt_nascimento}">  
+                                    <f:convertDateTime type="date" pattern="dd/mm/yyyy" />  
+                                </h:inputText> 
+                                <br/><br/>
                                 
                                 <p:outputLabel value="RG: " styleClass="input_text"/>
+                                <p:inputText id="rg" value="#{pessoaController.pessoaB.rg}" required="true" requiredMessage="Informe o seu rg!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="CPF: " styleClass="input_text"/>
+                                <p:inputText id="cpf" value="#{pessoaController.pessoaB.cpf}"  required="true" requiredMessage="Informe o seu cpf!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Telefone: " styleClass="input_text"/>
-                                
+                                <p:inputMask mask="(99) 99999-9999" id="telefone" value="#{pessoaController.pessoaB.telefone}" required="true" requiredMessage="Informe o seu telefone!"/>
+                                <br/><br/>                                
+
                                 <p:outputLabel value="E-mail: " styleClass="input_text"/>
+                                <p:inputText  id="email" value="#{pessoaController.pessoaB.email}" required="true" requiredMessage="Informe o seu email!"/>
+                                <br/><br/>
                             </div>
                             
                             <div class="dados_endereco">
@@ -72,9 +89,15 @@
                                 <p:outputLabel value="Confirmar Senha: " styleClass="input_text"/>
                                 
                             </div>
-                        </p:panel>
-                    </center>
-                </h:form>
+                            
+                            <div>
+                                <p:separator style="width: 100%"/>
+                                <p:commandButton value="Salvar" update="frmCadastro,grow" action="#{pessoaController.salvarPessoa()}"/>
+                                <p:commandButton value="Cancelar" action="pagina_principal"/>    
+                            </div>
+                        </h:form>
+                    </p:panel>
+                </center>
             </p:layoutUnit>
         </p:layout>
     </h:body>

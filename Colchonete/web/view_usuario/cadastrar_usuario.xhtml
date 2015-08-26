@@ -67,15 +67,24 @@
                                 <p:outputLabel value="Estado: " styleClass="input_text"/>
                                 
                                 <p:outputLabel value="Cidade: " styleClass="input_text"/>
+                                <p:inputText id="cidade" value="#{enderecoController.enderecoB.cidade}" required="true" requiredMessage="Informe a cidade!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Bairro: " styleClass="input_text"/>
+                                <p:inputText id="bairro" value="#{enderecoController.enderecoB.bairro}" rendered="true" requiredMessage="Insira o bairro!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Rua: " styleClass="input_text"/>
+                                <p:inputText id="rua" value="#{enderecoController.enderecoB.rua}" rendered="true" requiredMessage="Insira a rua!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="CEP: " styleClass="input_text"/>
+                                <p:inputMask mask="99999-999" id="cep" value="#{enderecoController.enderecoB.cep}" rendered="true" requiredMessage="Insira o cep!"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Complemento: " styleClass="input_text"/>
-                                
+                                <p:inputText id="complemento" value="#{enderecoController.enderecoB.complemento}" />
+                                <br/><br/>
                             </div>
                             
                             <div class="dados_usuario">

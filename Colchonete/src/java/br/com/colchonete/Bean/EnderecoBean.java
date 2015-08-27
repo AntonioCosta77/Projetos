@@ -6,7 +6,7 @@ package br.com.colchonete.Bean;
  */
 public class EnderecoBean {
     private int id_endereco;
-    private int id_pessoa;
+    private double id_pessoa;
     private int estado;
     private String cidade;
     private String bairro;
@@ -17,7 +17,7 @@ public class EnderecoBean {
     public EnderecoBean() {
     }
 
-    public EnderecoBean(int id_endereco, int id_pessoa, int estado, String cidade, String bairro, String rua, String cep, String complemento) {
+    public EnderecoBean(int id_endereco, double id_pessoa, int estado, String cidade, String bairro, String rua, String cep, String complemento) {
         this.id_endereco = id_endereco;
         this.id_pessoa = id_pessoa;
         this.estado = estado;
@@ -36,11 +36,11 @@ public class EnderecoBean {
         this.id_endereco = id_endereco;
     }
 
-    public int getId_pessoa() {
+    public double getId_pessoa() {
         return id_pessoa;
     }
 
-    public void setId_pessoa(int id_pessoa) {
+    public void setId_pessoa(double id_pessoa) {
         this.id_pessoa = id_pessoa;
     }
 

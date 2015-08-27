@@ -1,13 +1,14 @@
 package br.com.colchonete.Bean;
 
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
  * @author antonio
  */
 public class PessoaBean {
-    private int id_pessoa;
+    private double id_pessoa;
     private String nome;
     private String nick_name;
     private String dt_nascimento;
@@ -19,7 +20,7 @@ public class PessoaBean {
     public PessoaBean() {
     }
 
-    public PessoaBean(int id_pessoa, String nome, String nick_name, String dt_nascimento, int rg, int cpf, String telefone, String email) {
+    public PessoaBean(double id_pessoa, String nome, String nick_name, String dt_nascimento, int rg, int cpf, String telefone, String email) {
         this.id_pessoa = id_pessoa;
         this.nome = nome;
         this.nick_name = nick_name;
@@ -30,11 +31,11 @@ public class PessoaBean {
         this.email = email;
     }
 
-    public int getId_pessoa() {
+    public double getId_pessoa() {
         return id_pessoa;
     }
 
-    public void setId_pessoa(int id_pessoa) {
+    public void setId_pessoa(double id_pessoa) {
         this.id_pessoa = id_pessoa;
     }
 
@@ -92,6 +93,10 @@ public class PessoaBean {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setId_pessoa(Random id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

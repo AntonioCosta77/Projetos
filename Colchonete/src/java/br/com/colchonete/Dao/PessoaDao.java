@@ -2,7 +2,6 @@ package br.com.colchonete.Dao;
 
 import br.com.colchonete.Bean.PessoaBean;
 import br.com.colchonete.Utilitarios.Conexao;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,26 +30,27 @@ public class PessoaDao {
         
             java.util.Date data = formatador.parse(pessoa.getDt_nascimento());
             
-            String sql = "INSERT INTO colchonete_pessoas (nome, nick_name, dt_nascimento, rg, cpf, telefone, email)" + 
-                         "VALUES (?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO colchonete_pessoas (id_pessoa, nome, nick_name, dt_nascimento, rg, cpf, telefone, email)" + 
+                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
             
             PreparedStatement stm = con.getConnection().prepareStatement(sql);
             
-            stm.setString(1, pessoa.getNome());
-            stm.setString(2, pessoa.getNick_name());
-            stm.setDate(3, new java.sql.Date(data.getTime()));
-            stm.setInt(4, pessoa.getRg());
-            stm.setInt(5, pessoa.getCpf());
-            stm.setString(6, pessoa.getTelefone());
-            stm.setString(7, pessoa.getEmail());
+            stm.setDouble(1, pessoa.getId_pessoa());
+            stm.setString(2, pessoa.getNome());
+            stm.setString(3, pessoa.getNick_name());
+            stm.setDate(4, new java.sql.Date(data.getTime()));
+            stm.setInt(5, pessoa.getRg());
+            stm.setInt(6, pessoa.getCpf());
+            stm.setString(7, pessoa.getTelefone());
+            stm.setString(8, pessoa.getEmail());
             stm.execute();
             
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO SALVAR PESSOA: "+ex);
         } catch (ParseException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO SALVAR PESSOA: "+ex);
         }
         
         return false;
@@ -61,12 +61,12 @@ public class PessoaDao {
             String sql = "DELETE FROM colchonete_pessoas WHERE id_pessoa=?";
             PreparedStatement stm = con.getConnection().prepareStatement(sql);
             
-            stm.setInt(1, pessoa.getId_pessoa());
+            stm.setDouble(1, pessoa.getId_pessoa());
             stm.execute();
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO EXCLUIR PESSOA: "+ex);
         }
         
         return false;
@@ -91,14 +91,14 @@ public class PessoaDao {
             stm.setInt(5, pessoa.getCpf());
             stm.setString(6, pessoa.getTelefone());
             stm.setString(7, pessoa.getEmail());
-            stm.setInt(8, pessoa.getId_pessoa());
+            stm.setDouble(8, pessoa.getId_pessoa());
             stm.execute();
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO EDITAR PESSOA: "+ex);
         } catch (ParseException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO EDITAR PESSOA: "+ex);
         }
         
         return false;
@@ -114,7 +114,7 @@ public class PessoaDao {
             
             while(rs.next()){
                 PessoaBean pessoa = new PessoaBean();
-                pessoa.setId_pessoa(rs.getInt("id_pessoa"));
+                pessoa.setId_pessoa(rs.getDouble("id_pessoa"));
                 pessoa.setNome(rs.getString("nome"));
                 pessoa.setNick_name(rs.getString("nick_name"));
                 pessoa.setDt_nascimento(rs.getString("dt_nascimento"));
@@ -126,7 +126,7 @@ public class PessoaDao {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO LISTAR PESSOA: "+ex);
         }
         
         return lista;

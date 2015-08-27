@@ -1,13 +1,10 @@
 package br.com.colchonete.Dao;
 
 import br.com.colchonete.Bean.EnderecoBean;
-import br.com.colchonete.Bean.PessoaBean;
 import br.com.colchonete.Utilitarios.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,20 +16,23 @@ import java.util.logging.Logger;
  */
 public class EnderecoDao {
     private Conexao con;
-
+    
     public EnderecoDao() {
     }
     
     public  boolean salvarEndereco(EnderecoBean endereco){
         
         try {
-        
+            
             String sql = "INSERT INTO colchonete_enderecos (id_pessoa, estado, cidade, bairro, rua, cep,complemento)" + 
                          "VALUES (?, ?, ?, ?, ?, ?, ?);";
             
             PreparedStatement stm = con.getConnection().prepareStatement(sql);
+            //O erro está na linha acima
+            System.out.println("--------FOI-------");
+            System.exit(0);
             
-            stm.setInt(1, endereco.getId_pessoa());
+            stm.setDouble(1, endereco.getId_pessoa());
             stm.setInt(2, endereco.getEstado());
             stm.setString(3, endereco.getCidade());
             stm.setString(4, endereco.getBairro());
@@ -44,7 +44,7 @@ public class EnderecoDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO SALVAR ENDERECO: "+ex);
         }
         
         return false;
@@ -60,7 +60,7 @@ public class EnderecoDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO EXCLUIR ENDERECO: "+ex);
         }
         
         return false;
@@ -86,7 +86,7 @@ public class EnderecoDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO EDITAR ENDERECO: "+ex);
         }
         
         return false;
@@ -114,7 +114,7 @@ public class EnderecoDao {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO LISTAR ENDERECO: "+ex);
         }
         
         return lista;

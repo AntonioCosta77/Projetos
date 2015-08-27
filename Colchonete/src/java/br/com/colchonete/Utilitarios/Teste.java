@@ -3,6 +3,7 @@ package br.com.colchonete.Utilitarios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class Teste {
     public static void main(String[] args){
-        try {
+        /*try {
             Conexao con = new Conexao();
             PreparedStatement stm = con.getConnection().prepareStatement("select * from colchonete_pessoas");
             ResultSet rs = stm.executeQuery();
@@ -20,6 +21,10 @@ public class Teste {
             System.out.println(rs.getString("nick_name"));
         } catch (SQLException ex) {
             Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
+        double start = 2015;
+        double end = 1990;
+        double random = new Random().nextDouble();
+        System.out.println(start+random+"<-AQUI");
     }
 }

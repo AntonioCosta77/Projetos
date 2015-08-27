@@ -34,31 +34,31 @@
                             <div class="dados_pessoais">
                                 <h4>Dados Pessoais</h4>
                                 <p:outputLabel value="Nome Completo: " styleClass="input_text"/>
-                                <p:inputText id="nome" value="#{pessoaController.pessoaB.nome}" required="true" requiredMessage="Informe o seu nome!"/>
+                                <p:inputText id="nome" value="#{genericController.pessoa.nome}" required="true" requiredMessage="Informe o seu nome!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Como deseja ser chamado: " styleClass="input_text"/>
-                                <p:inputText id="nick_name" value="#{pessoaController.pessoaB.nick_name}"/>
+                                <p:inputText id="nick_name" value="#{genericController.pessoa.nick_name}"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Data de Nacimento: " styleClass="input_text"/>
-                                <p:inputMask mask="99/99/9999" id="dt_nascimento" value="#{pessoaController.pessoaB.dt_nascimento}"/>
+                                <p:inputMask mask="99/99/9999" id="dt_nascimento" value="#{genericController.pessoa.dt_nascimento}"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="RG: " styleClass="input_text"/>
-                                <p:inputText id="rg" value="#{pessoaController.pessoaB.rg}" required="true" requiredMessage="Informe o seu rg!"/>
+                                <p:inputText id="rg" value="#{genericController.pessoa.rg}" required="true" requiredMessage="Informe o seu rg!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="CPF: " styleClass="input_text"/>
-                                <p:inputText id="cpf" value="#{pessoaController.pessoaB.cpf}"  required="true" requiredMessage="Informe o seu cpf!"/>
+                                <p:inputText id="cpf" value="#{genericController.pessoa.cpf}"  required="true" requiredMessage="Informe o seu cpf!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Telefone: " styleClass="input_text"/>
-                                <p:inputMask mask="(99) 99999-9999" id="telefone" value="#{pessoaController.pessoaB.telefone}" required="true" requiredMessage="Informe o seu telefone!"/>
+                                <p:inputMask mask="(99) 99999-9999" id="telefone" value="#{genericController.pessoa.telefone}" required="true" requiredMessage="Informe o seu telefone!"/>
                                 <br/><br/>                                
 
                                 <p:outputLabel value="E-mail: " styleClass="input_text"/>
-                                <p:inputText  id="email" value="#{pessoaController.pessoaB.email}" required="true" requiredMessage="Informe o seu email!"/>
+                                <p:inputText  id="email" value="#{genericController.pessoa.email}" required="true" requiredMessage="Informe o seu email!"/>
                                 <br/><br/>
                             </div>
                             
@@ -67,23 +67,23 @@
                                 <p:outputLabel value="Estado: " styleClass="input_text"/>
                                 
                                 <p:outputLabel value="Cidade: " styleClass="input_text"/>
-                                <p:inputText id="cidade" value="#{enderecoController.enderecoB.cidade}" required="true" requiredMessage="Informe a cidade!"/>
+                                <p:inputText id="cidade" value="#{genericController.endereco.cidade}" required="true" requiredMessage="Informe a cidade!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Bairro: " styleClass="input_text"/>
-                                <p:inputText id="bairro" value="#{enderecoController.enderecoB.bairro}" rendered="true" requiredMessage="Insira o bairro!"/>
+                                <p:inputText id="bairro" value="#{genericController.endereco.bairro}" rendered="true" requiredMessage="Insira o bairro!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Rua: " styleClass="input_text"/>
-                                <p:inputText id="rua" value="#{enderecoController.enderecoB.rua}" rendered="true" requiredMessage="Insira a rua!"/>
+                                <p:inputText id="rua" value="#{genericController.endereco.rua}" rendered="true" requiredMessage="Insira a rua!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="CEP: " styleClass="input_text"/>
-                                <p:inputMask mask="99999-999" id="cep" value="#{enderecoController.enderecoB.cep}" rendered="true" requiredMessage="Insira o cep!"/>
+                                <p:inputMask mask="99999-999" id="cep" value="#{genericController.endereco.cep}" rendered="true" requiredMessage="Insira o cep!"/>
                                 <br/><br/>
                                 
                                 <p:outputLabel value="Complemento: " styleClass="input_text"/>
-                                <p:inputText id="complemento" value="#{enderecoController.enderecoB.complemento}" />
+                                <p:inputText id="complemento" value="#{genericController.endereco.complemento}" />
                                 <br/><br/>
                             </div>
                             
@@ -99,7 +99,7 @@
                             
                             <div>
                                 <p:separator style="width: 100%"/>
-                                <p:commandButton value="Salvar" update="frmCadastro,grow" action="#{pessoaController.salvarPessoa()}"/>
+                                <p:commandButton value="Salvar" update="frmCadastro,grow" action="#{genericController.salvar()}"/>
                                 <p:commandButton value="Cancelar" action="pagina_principal"/>    
                             </div>
                         </h:form>

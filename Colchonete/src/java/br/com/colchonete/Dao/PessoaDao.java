@@ -48,9 +48,9 @@ public class PessoaDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            System.out.println("ERRO SALVAR PESSOA: "+ex);
+            System.out.println("ERRO SALVAR PESSOA: "+ex.getMessage());
         } catch (ParseException ex) {
-            System.out.println("ERRO SALVAR PESSOA: "+ex);
+            System.out.println("ERRO SALVAR PESSOA: "+ex.getMessage());
         }
         
         return false;
@@ -66,7 +66,7 @@ public class PessoaDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            System.out.println("ERRO EXCLUIR PESSOA: "+ex);
+            System.out.println("ERRO EXCLUIR PESSOA: "+ex.getMessage());
         }
         
         return false;
@@ -96,9 +96,9 @@ public class PessoaDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            System.out.println("ERRO EDITAR PESSOA: "+ex);
+            System.out.println("ERRO EDITAR PESSOA: "+ex.getMessage());
         } catch (ParseException ex) {
-            System.out.println("ERRO EDITAR PESSOA: "+ex);
+            System.out.println("ERRO EDITAR PESSOA: "+ex.getMessage());
         }
         
         return false;
@@ -126,7 +126,7 @@ public class PessoaDao {
             }
             
         } catch (SQLException ex) {
-            System.out.println("ERRO LISTAR PESSOA: "+ex);
+            System.out.println("ERRO LISTAR PESSOA: "+ex.getMessage());
         }
         
         return lista;

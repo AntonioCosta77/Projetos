@@ -95,10 +95,4 @@ public class PessoaBean {
         this.email = email;
     }
 
-    public void setId_pessoa(Random id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
 }

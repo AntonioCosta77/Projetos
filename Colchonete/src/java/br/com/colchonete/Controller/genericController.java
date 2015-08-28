@@ -75,6 +75,7 @@ public class genericController implements Serializable{
         double id = new Random().nextDouble();
         pessoa.setId_pessoa(2015+id);
         endereco.setId_pessoa(pessoa.getId_pessoa());
+        usuario.setId_pessoa(pessoa.getId_pessoa());
         
         PessoaDao pd = new PessoaDao();
         EnderecoDao ed = new EnderecoDao();
@@ -82,16 +83,21 @@ public class genericController implements Serializable{
         
         FacesContext contexto = FacesContext.getCurrentInstance();
         
-        if(pd.salvarPessoa(pessoa)){
-            if(ed.salvarEndereco(endereco)){
-                contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Cadastro realizado com sucesso!",null) );
-                return "pagina_principal";
+        if(ud.salvarUsuario(usuario)){
+            if(pd.salvarPessoa(pessoa)){
+                if(ed.salvarEndereco(endereco)){
+                    contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Cadastro realizado com sucesso!",null) );
+                    return "pagina_principal";
+                }else{
+                    contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Não foi possivel cadastrar seu endereco!",null) );
+                    return "error";  
+                }
             }else{
-                contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Não foi possivel cadastrar o endereco!",null) );
+                contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Não foi possivel cadastrar seus dados!",null) );
                 return "error";  
             }
         }else{
-            return "error";
+            return "";
         }
     }
     

@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +16,7 @@ public class EnderecoDao {
     private Conexao con;
     
     public EnderecoDao() {
+        con = new Conexao();
     }
     
     public  boolean salvarEndereco(EnderecoBean endereco){
@@ -28,9 +27,6 @@ public class EnderecoDao {
                          "VALUES (?, ?, ?, ?, ?, ?, ?);";
             
             PreparedStatement stm = con.getConnection().prepareStatement(sql);
-            //O erro está na linha acima
-            System.out.println("--------FOI-------");
-            System.exit(0);
             
             stm.setDouble(1, endereco.getId_pessoa());
             stm.setInt(2, endereco.getEstado());
@@ -44,7 +40,7 @@ public class EnderecoDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            System.out.println("ERRO SALVAR ENDERECO: "+ex);
+            System.out.println("ERRO SALVAR ENDERECO: "+ex.getMessage());
         }
         
         return false;
@@ -60,7 +56,7 @@ public class EnderecoDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            System.out.println("ERRO EXCLUIR ENDERECO: "+ex);
+            System.out.println("ERRO EXCLUIR ENDERECO: "+ex.getMessage());
         }
         
         return false;
@@ -86,7 +82,7 @@ public class EnderecoDao {
             con.getConnection().commit();
             return true;
         } catch (SQLException ex) {
-            System.out.println("ERRO EDITAR ENDERECO: "+ex);
+            System.out.println("ERRO EDITAR ENDERECO: "+ex.getMessage());
         }
         
         return false;
@@ -114,7 +110,7 @@ public class EnderecoDao {
             }
             
         } catch (SQLException ex) {
-            System.out.println("ERRO LISTAR ENDERECO: "+ex);
+            System.out.println("ERRO LISTAR ENDERECO: "+ex.getMessage());
         }
         
         return lista;

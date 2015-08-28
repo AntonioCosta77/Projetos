@@ -65,6 +65,14 @@
                             <div class="dados_endereco">
                                 <h4>Endereço</h4>
                                 <p:outputLabel value="Estado: " styleClass="input_text"/>
+                                <p:selectOneMenu id="estado" value="#{genericController.endereco.estado}">
+                                    <f:selectItem itemLabel="Selecione um estado Estado" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Amazonas" itemValue="1" />
+                                    <f:selectItem itemLabel="Para" itemValue="2" />
+                                    <f:selectItem itemLabel="Maranhao" itemValue="3" />
+                                    <f:selectItem itemLabel="Ceara" itemValue="4" />
+                                </p:selectOneMenu>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Cidade: " styleClass="input_text"/>
                                 <p:inputText id="cidade" value="#{genericController.endereco.cidade}" required="true" requiredMessage="Informe a cidade!"/>
@@ -90,9 +98,12 @@
                             <div class="dados_usuario">
                                 <h4>Informações de Acesso</h4>
                                 <p:outputLabel value="Login: " styleClass="input_text"/>
+                                <p:inputText id="login" value="#{genericController.usuario.login}" rendered="true"/>
+                                <br/><br/>
                                 
                                 <p:outputLabel value="Senha: " styleClass="input_text"/>
-                                
+                                <p:inputText id="senha" value="#{genericController.usuario.senha}" rendered="true"/>
+                                <br/><br/>
                                 <p:outputLabel value="Confirmar Senha: " styleClass="input_text"/>
                                 
                             </div>

@@ -110,9 +110,14 @@
                             
                             <div>
                                 <p:separator style="width: 100%"/>
-                                <p:commandButton value="Salvar" update="frmCadastro,grow" action="#{genericController.salvar()}"/>
+                                <p:commandButton value="Salvar" update="frmCadastro,grow" action="#{genericController.salvar()}" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
                                 <p:commandButton value="Cancelar" action="pagina_principal"/>    
                             </div>
+                            
+                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                <p:outputLabel value="Carregando..."/>
+                                <p:graphicImage name="imagens/loading.gif" />
+                            </p:dialog>
                         </h:form>
                     </p:panel>
                 </center>

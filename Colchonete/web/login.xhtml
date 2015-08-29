@@ -38,12 +38,18 @@
                             <p:inputText type="password" value="#{usuarioController.usuarioB.senha}" required="true" requiredMessage="Informe sua senha"/>
                             </p>
                             
-                            <p:commandButton value="Acessar" styleClass="btn" update="grow" action="#{usuarioController.logar()}"/>
-                            </h:form>
+                            <p:commandButton value="Acessar" styleClass="btn" update="grow" action="#{usuarioController.logar()}" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
                             
                             <p style="text-align: left">
+                                <p:graphicImage name="/imagens/loading.png" />
                                 <a href="view_usuario/cadastrar_usuario.xhtml">Realizar Cadastro</a>
                             </p>
+                            
+                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                <p:outputLabel value="Carregando..."/>
+                                <p:graphicImage name="imagens/loading.gif" />
+                            </p:dialog>
+                            </h:form>
                         </p:panel>
                     </center>
                 </p:layoutUnit>

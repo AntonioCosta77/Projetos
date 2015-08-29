@@ -30,6 +30,7 @@ and open the template in the editor.
 .descricao{
     font-style: oblique;
     font-weight: bold;
+    text-align: center;
 }
 
 .login{

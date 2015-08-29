@@ -5,10 +5,6 @@ import br.com.colchonete.Utilitarios.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -24,7 +20,6 @@ public class UsuarioDao {
     public  boolean salvarUsuario(UsuarioBean usuario){
         
         try {
-            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
             
             String sql = "INSERT INTO colchonete_usuarios (id_pessoa,senha,login)" + 
                          "VALUES (?, ?, ?);";
@@ -82,27 +77,30 @@ public class UsuarioDao {
         return false;
     }
     
-    public List<UsuarioBean> listarUsuarios(){
-        List<UsuarioBean> lista = new ArrayList<UsuarioBean>();
+    public boolean login(UsuarioBean usuario) {
         try {
-            String sql = "SELECT * FROM colchonete_usuarios";
+        
+            String sql = "SELECT login FROM colchonete_usuarios WHERE login=? AND senha=?";
+            
             PreparedStatement stm = con.getConnection().prepareStatement(sql);
+            
+            stm.setString(1, usuario.getLogin());
+            stm.setString(2, usuario.getSenha());
             
             ResultSet rs = stm.executeQuery();
             
-            while(rs.next()){
-                UsuarioBean usuario = new UsuarioBean();
-                usuario.setId_usuario(rs.getInt("id_usuario"));
-                usuario.setId_pessoa(rs.getInt("id_pessoa"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setLogin(rs.getString("login"));
-                lista.add(usuario);
+            rs.next();
+            
+            if(rs.getString("login").isEmpty()){
+                return false;
+            }else{
+                return true;
             }
             
+            
         } catch (SQLException ex) {
-            System.out.println("ERRO LISTAR PESSOA: "+ex.getMessage());
+            System.out.println("ERRO AO LOGAR: "+ex.getMessage());
         }
-        
-        return lista;
+        return false;
     }
 }

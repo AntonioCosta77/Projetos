@@ -26,18 +26,19 @@
                     <center>
                         <p:panel class="login">
                             <h:form>
+                            <p:growl id="grow"/>
                             <h2>Login</h2>
                             <p class="input_text">
                             <p:outputLabel value="Login: "/>
-                            <p:inputText type="text" required="true" requiredMessage="Informe seu login"/>
+                            <p:inputText type="text" value="#{usuarioController.usuarioB.login}" required="true" requiredMessage="Informe seu login"/>
                             </p>
                             
                             <p class="input_text">
                             <p:outputLabel value="Senha: "/>
-                            <p:inputText type="password" required="true" requiredMessage="Informe seu login"/>
+                            <p:inputText type="password" value="#{usuarioController.usuarioB.senha}" required="true" requiredMessage="Informe sua senha"/>
                             </p>
                             
-                            <p:commandButton value="Acessar" styleClass="btn"/>
+                            <p:commandButton value="Acessar" styleClass="btn" update="grow" action="#{usuarioController.logar()}"/>
                             </h:form>
                             
                             <p style="text-align: left">

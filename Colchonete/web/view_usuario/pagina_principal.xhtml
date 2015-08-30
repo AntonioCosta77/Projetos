@@ -29,7 +29,7 @@
                         </p>
                         
                         <p>
-                            <p:commandButton value="Cadastrar Ofertas" style="width: 190px"/>
+                            <p:commandButton value="Cadastrar Ofertas" action="cadastrar_oferta" style="width: 190px"/>
                             <p:commandButton value="Ver minhas Ofertas" style="width: 190px"/>
                             <p:commandButton value="Buscar Ofertas" style="width: 190px"/>
                         </p>
@@ -37,11 +37,11 @@
                 </p:layoutUnit>
                 
                 <p:layoutUnit position="center">
-                    <ui:define name="centro">
+                    <ui:insert name="centro">
                         <p class="descricao">
                             BEM-VINDO
                         </p>
-                    </ui:define>
+                    </ui:insert>
                 </p:layoutUnit>
 
             </p:layout>
